@@ -3,6 +3,9 @@ package com.algorithms.array;
 import java.util.HashSet;
 import java.util.Set;
 
+// Or may be solved via LinkedHashSet since it maintained the order how the items are inserted into it,
+// -> O(N) as well, but will introduce an overhead of using the iterator, so the classic solution with two index pointers
+// would be better here.
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 public class LengthOfLongestSubstringProblem {
 
