@@ -45,11 +45,21 @@ public class ArrayUtils {
         }
 
         int maxSum = nums[0];
-        int currentSum = nums[0];
+        int currentSum = 0;
 
-        for (int i = 1; i < nums.length; i++) {
-            currentSum = Math.max(nums[i], currentSum + nums[i]);
-            maxSum = Math.max(maxSum, currentSum);
+        for (var num : nums) {
+            currentSum += num;
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+            }
+
+            if (currentSum < 0) {
+                // The previous items lead to a negative sum -
+                // they will only decrease the future potential sum.
+                // Skip them all and restart summing the items up.
+                currentSum = 0;
+            }
         }
 
         return maxSum;
